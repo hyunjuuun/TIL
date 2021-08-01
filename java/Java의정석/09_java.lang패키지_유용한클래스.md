@@ -134,17 +134,74 @@ clone() 메서드는 단순 객체에 저장된 값을 그대로 복제한다. (
 
 <br>
 
+### getClass()
 
+자신이 속한 클래스의 Class객체를 반환하는 메서드이다. Class 객체는 클래스의 모든 정보를 담고 있으며, 클래스 당 1개만 존재한다.
 
+클래스 파일이 '클래스 로더(ClassLoader)'에 의해서 메모리에 올라갈 때, 자동으로 생성된다.
 
+<br>
 
+### Class 객체를 얻는 방법
 
+클래스의 정보가 필요하면 Class 객체에 대한 참조를 얻어와야 한다. 참조를 얻는 방법은 여러가지이다.
 
+```java
+Class cObj = new Card().getClass(); // 생성된 객체로부터 얻는 방법
+Class cObj = Card.class; // 클래스 리터럴(*.class)로부터 얻는 방법
+Class cobj = Class.forName("Card"); // 클래스 이름으로부터 얻는 방법
+```
 
+Class 객체를 이용한 객체 생성
 
+```java
+Card c = new Card(); // new 연산자를 이용한 객체 생성
+Card c = Card.class.newInstance(); // Class 객체를 이용한 객체 생성
+```
 
+---
 
+## String 클래스
 
+### 변경 불가능한(immutable) 클래스
+
+한번 생성된 String 인스턴스가 갖고 있는 문자열은 읽어 올 수만 있고, 변경은 불가능하다.
+
+```java
+String a = "a";
+String b = "b";
+a = a+b;
+```
+
+위 코드와 같이 '+' 연산자를 이용해서 문자열을 결합하면 인스턴스 내의 문자열이 바뀌는 것이 아니라 새로운 문자열이 담긴 String 인스턴스가 생성된다.
+
+이처럼 '+' 연산자를 사용해서 문자열을 결합하면 매 연산 시마다 새로운 문자열을 가진 String 인스턴스가 생성되어 메모리공간을 차지하게 되므로 가능한 결합 횟수를 줄이는 것이 좋다.
+
+`문자열간의 결합이나 추출 등 문자열을 다루는 작업이 많이 필요할 때는 StringBuffer 클래스를 사용하자. StringBuffer 인스턴스에 저장된 문자열을 변경이 가능하므로 하나의 StringBuffer 인스턴스만으로 문자열을 다루는 것이 가능하다.`
+
+<br>
+
+### 문자열의 비교
+
+**문자열을 만드는 두 가지 방법**
+
+1. 문자열 리터럴을 지정
+2. String 클래스의 생성자 사용
+
+<br>
+
+```java
+String str1 = "abc"; // 문자열 리터럴 "abc"의 주소가 str1에 지정됨
+String str2 = "abc"; // 문자열 리터럴 "abc"의 주소가 str2에 지정됨
+String str3 = new String("abc"); // 새로운 String 인스턴스를 생성
+String str4 = new String("abc"); // 새로운 String 인스턴스를 생성S
+```
+
+String 클래스의 생성자를 이용하면 -> new 연산자에 의한 메모리 할당 (항상 새로운 String 인스턴스 생성)
+
+문자열 리터럴 -> 이미 존재하는 것을 재사용
+
+<br>
 
 
 
