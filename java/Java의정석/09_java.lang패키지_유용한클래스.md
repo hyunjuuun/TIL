@@ -203,9 +203,34 @@ String 클래스의 생성자를 이용하면 -> new 연산자에 의한 메모�
 
 <br>
 
+### 문자열 리터럴
 
+문자열 리터럴은 컴파일 시에 클래스 파일에 저장된다. 이 때 같은 내용의 문자열 리터럴은 한번만 저장된다.
 
+<br>
 
+### join()과 StringJoiner
+
+join()은 여러 문자열 사이에 구분자를 넣어서 결합한다. / split()과 반대 작업
+
+```java
+String animals = "dog,cat,bear";
+String[] arr = animals.split(","); // 문자열을 ','를 구분자로 나눠서 배열에 저장
+String str = String.join("-", arr); // 배열의 문자열을 '-'로 구분해서 결합
+System.out.println(str); // dog-cat-bear
+```
+
+<br>
+
+```java
+StringJoiner sj = new StringJoiner(",", "[", "]");
+String[] strArr = {"aaa", "bbb", "ccc"};
+
+for(String s : strArr)
+  sj.add(s.toUpperCase());
+
+System.out.println(sj.toString()); // [AAA,BBB,CCC]
+```
 
 
 
