@@ -232,9 +232,87 @@ for(String s : strArr)
 System.out.println(sj.toString()); // [AAA,BBB,CCC]
 ```
 
+<br>
 
+### String.format()
 
+```java
+String str = String.format("%d 더하기 %d는 %d입니다.", 3, 5, 3+5);
+System.out.println(str); // 3 더하기 5는 8입니다.
+```
 
+<br>
+
+### 기본형 값을 String으로 변환
+
+성능은 valueOf()가 더 좋지만, 빈 문자열을 더하는 방법이 간단하고 편하므로 성능향상이 필요한 경우에만 valueOf()를 사용하면 된다.
+
+```java
+int i = 100;
+String str1 = i + ""; // 100을 "100"으로 변환하는 방법1
+String str2 = String.valueOf(i); // 100을 "100"으로 변환하는 방법2
+```
+
+> 참조변수에 String을 더하면, 참조변수가 가리키는 인스턴스의 toString()을 호출하여 String을 얻은 다음 결합한다.
+
+<br>
+
+### String을 기본형 값으로 변환
+
+```java
+int i = Integer.parseInt("100"); // "100"을 100으로 변환하는 방법1
+int i2 = Integer.valueOf("100"); // "100"을 100으로 변환하는 방법2
+```
+
+valueOf()의 반환타입은 Integer인데, 오토박싱에 의해 int로 자동 변환된다.
+
+<br>
+
+## StringBuffer클래스와 StringBuilder클래스
+
+String 클래스: 인스턴스 생성 시 지정된 문자열 변경 불가능
+
+StringBuffer 클래스 : 변경 가능, 내부적으로 문자열 편집을 위한 버퍼(buffer)를 가지고 있으며, StringBuffer 인스턴스 생성 시 크기 지정 가능
+
+<br>
+편집할 문자열의 길이를 고려하여 버퍼의 길이를 충분히 잡아주자. 편집 중인 문자열이 버퍼의 길이를 넘어서게 되면 버퍼의 길이를 늘려주는 작업이 추가적으로 수행되어야하므로 작업효율이 떨어진다.
+
+<br>
+
+StringBuffer 클래스는 String 클래스처럼 문자열을 저장하기 위한 char형 배열의 참조변수를 인스턴스 변수로 선언해 놓고 있다.
+
+```java
+public final class StringBuffer implements java.io.Serializable {
+  private char[] value;
+  ...
+}
+```
+
+<br>
+
+### StringBuffer의 생성자
+
+StringBuffer 클래스의 인스턴스를 생성하면, 적절한 길이의 char형 배열이 생성되고, 이 배열은 문자열을 저장하고 편집하기 위한 공간(buffer)으로 사용된다.
+
+StringBuffer(int length)를 사용해서 저장될 문자열의 길이를 고려하여 충분히 여유있는 크기로 지정한다. 크기를 따로 지정하지 않으면 16개의 문자를 저장할 수 있는 크기의 버퍼를 생성한다.
+
+```java
+public StringBuffer(int length){
+  value = new char[length];
+  shared = false;
+}
+
+public StringBuffer(){
+  this(16);
+}
+
+public StringBuffer(String str) {
+  this(str.length() + 16);
+  append(str);
+}
+```
+
+<br>
 
 
 
