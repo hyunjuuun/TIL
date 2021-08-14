@@ -314,6 +314,18 @@ public StringBuffer(String str) {
 
 <br>
 
+### StringBuilder
+
+StringBuffer는 멀티쓰레드에 안전(thread safe)하도록 동기화되어 있다. (멀티쓰레드나 동기화에 대해서는 아직 다루지 않았으므로 동기화가 StringBuffer의 성능을 떨어뜨린다는 것만 우선 이해하자)
+
+멀티쓰레드로 작성된 프로그램이 아닌 경우, StringBuffer의 동기화는 불필요하게 성능 저하를 유발한다.
+
+<br>
+
+StringBuffer에서 쓰레드의 동기화만 뺀 것이 StringBuilder이다.
+
+<br>
+
 
 
 
