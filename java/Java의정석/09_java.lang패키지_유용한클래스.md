@@ -326,6 +326,16 @@ StringBuffer에서 쓰레드의 동기화만 뺀 것이 StringBuilder이다.
 
 <br>
 
+### Math 클래스
+
+기본적인 수학계산에 유용한 메서드로 구성되어 있다. (Math 클래스의 메서드는 p.489 참고)
+
+<br>
+
+### 래퍼(wrapper) 클래스
+
+
+
 
 
 
