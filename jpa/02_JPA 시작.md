@@ -2,8 +2,6 @@ h2 데이터베이스
 
 h2.bat 파일 실행
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/83c2fa87-3bd3-4a3c-bc95-324d49091012/Untitled.png)
-
 JPA 구현체로 하이버네이트를 사용하기 위한 핵심 라이브러리
 
 - hibernate-core: 하이버네이트 라이브러리
